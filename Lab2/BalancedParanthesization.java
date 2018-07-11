@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.io.*;
  
-class BalancedParanthesization {
+class StackApplication {
  
 	/**
 	 * @param args
@@ -11,20 +11,21 @@ class BalancedParanthesization {
 		Scanner in = new Scanner(System.in);
 		CapacityGetterSetter getset = new CapacityGetterSetter();
 		
- 
+ String pattern="";
 		int testcases = Integer.parseInt(in.nextLine());
 		for (int j=0;j<testcases;j++){
+			int inputs = Integer.parseInt(in.nextLine());
 			int stacksize = Integer.parseInt(in.nextLine());
 			getset.setCapacity(stacksize);
-			int inputs = Integer.parseInt(in.nextLine());
+			
             while (inputs >0) {
-				String pattern = in.nextLine();
-				BalancedParanthesization par = new BalancedParanthesization();
+				pattern = in.nextLine();
+				StackApplication par = new StackApplication();
 				if(par.paranthesisCheck(pattern))
 						System.out.println("YES");
 				else
 					System.out.println("NO");
- 
+                pattern="";
 				}
 			}
 			
@@ -38,17 +39,34 @@ class BalancedParanthesization {
 				if(input.charAt(i)=='{'||input.charAt(i)=='['||input.charAt(i)=='(') 
 					S.push(input.charAt(i));
 				else if(input.charAt(i)=='}'||input.charAt(i)==']'||input.charAt(i)==')')
-					{if(S.isEmpty())
-						return false;
+					{if(S.isEmpty()) {
+						while(S.size()>0)
+						{
+							S.pop();
+						}
+						return false;}
 					else if(!isMatchingPair(S.pop(),input.charAt(i))){
+						while(S.size()>0)
+						{
+							S.pop();
+						}
 							return false;
 					}
 					}}
-			if(S.isEmpty())
-				return true;
-			else
+			if(S.isEmpty()) {
+				while(S.size()>0)
+				{
+					S.pop();
+				}
+				return true;}
+			else {
+				while(S.size()>0)
+				{
+					S.pop();
+				}
 				return false;
- 
+			}
+			
 		}
 	public boolean isMatchingPair(char a,char b)
 	{
@@ -113,7 +131,7 @@ class StackArray<E> implements stack<E> {
 		// TODO Auto-generated method stub
 		if (size() == CAPACITY)
 		{
-			System.out.println("StackFullException");
+			
 		}
 		else {
 			t = t + 1;
