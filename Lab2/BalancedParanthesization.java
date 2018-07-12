@@ -14,8 +14,9 @@ class StackApplication {
  String pattern="";
 		int testcases = Integer.parseInt(in.nextLine());
 		for (int j=0;j<testcases;j++){
-			int inputs = Integer.parseInt(in.nextLine());
+			
 			int stacksize = Integer.parseInt(in.nextLine());
+			int inputs = Integer.parseInt(in.nextLine());
 			getset.setCapacity(stacksize);
 			
             while (inputs >0) {
@@ -26,6 +27,7 @@ class StackApplication {
 				else
 					System.out.println("NO");
                 pattern="";
+                inputs--;
 				}
 			}
 			
@@ -82,7 +84,7 @@ class StackApplication {
  
  
 }
-
+ 
 interface stack<E> {
 	int size();
 	boolean isEmpty();
@@ -176,6 +178,6 @@ class StackArray<E> implements stack<E> {
 		}
 	}
  
-
  
-}
+ 
+} 
