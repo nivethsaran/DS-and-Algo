@@ -1,7 +1,6 @@
-
 import java.util.Scanner;
 import java.util.Stack;
-
+ 
 class StackApplication
 {
     // A utility function to return precedence of a given operator
@@ -102,4 +101,4 @@ class StackApplication
     	}
         
     }
-}
+} 
